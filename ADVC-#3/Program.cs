@@ -195,6 +195,85 @@
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
+            #region EX:4
+            HashSet<string> emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // 2
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+
+            Console.WriteLine("-----------------------------");
+
+            // 3
+            Console.WriteLine($"Email Count: {emails.Count}");
+
+            Console.WriteLine("-----------------------------");
+
+            // 4
+            HashSet<int> setA = new HashSet<int>()
+            {
+                1, 2, 3, 4, 5
+            };
+
+            HashSet<int> setB = new HashSet<int>()
+            {
+                4, 5, 6, 7, 8
+            };
+            Console.WriteLine("-----------------------------");
+
+            // Union
+            HashSet<int> union = new HashSet<int>(setA);
+            union.UnionWith(setB);
+
+            Console.WriteLine("Union:");
+            foreach (int x in union)
+            {
+                Console.Write(x + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("-----------------------------");
+
+            // Intersection
+            HashSet<int> intersection = new HashSet<int>(setA);
+            intersection.IntersectWith(setB);
+
+            Console.WriteLine("Intersection:");
+            foreach (int x in intersection)
+            {
+                Console.Write(x + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("-----------------------------");
+
+            // Except
+            HashSet<int> except = new HashSet<int>(setA);
+            except.ExceptWith(setB);
+
+            Console.WriteLine("Except:");
+            foreach (int x in except)
+            {
+                Console.Write(x + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("-----------------------------");
+
+            // IsSubsetOf
+            HashSet<int> smallSet = new HashSet<int>()
+            {
+                1, 2
+            };
+
+            Console.WriteLine(
+                $"Is Subset: {smallSet.IsSubsetOf(setA)}");
+            #endregion
         }
     }
 }
