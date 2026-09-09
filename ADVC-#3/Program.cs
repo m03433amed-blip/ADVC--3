@@ -123,6 +123,78 @@
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
+            #region EX:3
+            Dictionary<string, string> phoneBook = new Dictionary<string, string>();
+
+
+            phoneBook.Add("Ahmed", "01011111111");
+            phoneBook.Add("Sara", "01122222222");
+            phoneBook.Add("Ali", "01233333333");
+            phoneBook.Add("Mona", "01544444444");
+
+            Console.WriteLine("-----------------------------");
+
+            // 2
+            phoneBook["Omar"] = "01055555555";
+
+            Console.WriteLine("-----------------------------");
+
+            // 3
+            try
+            {
+                phoneBook.Add("Ahmed", "01199999999");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+
+            Console.WriteLine("-----------------------------");
+
+            // 4
+            bool added = phoneBook.TryAdd("Ahmed", "01199999999");
+
+            Console.WriteLine($"TryAdd succeeded: {added}");
+
+            Console.WriteLine("-----------------------------");
+
+            // 5
+            Console.WriteLine($"Khaled exists: {phoneBook.ContainsKey("Khaled")}");
+
+            Console.WriteLine("-----------------------------");
+
+
+            // 6
+            string phone = phoneBook.TryGetValue("Khaled", out string value) ? value : "Not Found";
+
+            Console.WriteLine($"Khaled: {phone}");
+
+            Console.WriteLine("-----------------------------");
+
+
+            // 7
+            Console.WriteLine("Names:");
+
+            foreach (string name in phoneBook.Keys)
+            {
+                Console.Write($"{name} ");
+            }
+
+            Console.WriteLine();
+
+            Console.WriteLine("-----------------------------");
+
+            // 8
+            Console.WriteLine("Phone Numbers:");
+
+            foreach (string phoneNumber in phoneBook.Values)
+            {
+                Console.Write($"{phoneNumber} ");
+            }
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
