@@ -70,6 +70,59 @@
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
+            #region EX:2
+            Dictionary<int, string> leaderboard = new Dictionary<int, string>();
+
+            leaderboard.Add(500, "Ahmed");
+            leaderboard.Add(200, "Sara");
+            leaderboard.Add(800, "Ali");
+            leaderboard.Add(350, "Mona");
+            // 2
+            foreach (var item in leaderboard.OrderBy(x => x.Key))
+            {
+                Console.WriteLine($"{item.Key} = {item.Value}");
+            }
+            Console.WriteLine("-----------------------------");
+            // 3
+            var first = leaderboard.OrderBy(x => x.Key).First();
+
+            Console.WriteLine($"First Key: {first.Key}");
+            Console.WriteLine($"First Value: {first.Value}");
+
+            Console.WriteLine("-----------------------------");
+
+            // 4
+            Console.WriteLine(
+                $"Score 500 exists: {leaderboard.ContainsKey(500)}");
+            Console.WriteLine("-----------------------------");
+
+
+            // 5
+            if (leaderboard.TryGetValue(999, out string player))
+            {
+                Console.WriteLine(player);
+            }
+            else
+            {
+                Console.WriteLine("Player not found");
+            }
+            Console.WriteLine("-----------------------------");
+
+
+            // 6
+            leaderboard.Remove(200);
+
+            Console.WriteLine("Updated Leaderboard:");
+
+            foreach (var item in leaderboard.OrderBy(x => x.Key))
+            {
+                Console.WriteLine($"{item.Key} = {item.Value}");
+            }
+
+            #endregion
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
